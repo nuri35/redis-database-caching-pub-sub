@@ -15,7 +15,13 @@ module.exports = (router) => {
 
     router.get("/redis/hash", async (req, res) => {
         try {
-            await client.hSet('user943230509', "1112", '{"name":"Fred","age":25}');
+            const data = {name:"Fred",age:25}
+
+            for (let index = 0; index < 50; index++) {
+              
+                await client.hSet('user943230509', `${index}`, JSON.stringify(data));
+            }
+           
 
             res.status(200).json({ message: "user hash typed saved" })
         } catch (err) {
