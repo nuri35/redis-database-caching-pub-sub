@@ -12,35 +12,28 @@
   - [Setup](#setup)
   - [Usage](#usage)
   - [Project Status](#project-status)
-  - [Room for Improvement](#room-for-improvement)
-  - [Acknowledgements](#acknowledgements)
   - [Contact](#contact)
 <!-- * [License](#license) -->
 
 
 ## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
+- The general purpose of the project is to understand redis and make small examples, and also to see the redis database data types we used before
 
 
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+ <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original-wordmark.svg" alt="redis" width="40" height="40"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/>
 
 
 ## Features
 List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- Redis Database and data type
+- Redis Caching
+- Redis pub/sub
 
 
 ## Screenshots
-![Example screenshot](./images/Ekran Alıntısı)
+![Example screenshot](./images/Ekran Alıntısı.PNG)
 
 
 
@@ -61,23 +54,8 @@ Provide various use cases and code examples here.
 Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
 
 
-## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
-Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
-
-To do:
-- Feature to be added 1
-- Feature to be added 2
 
 
-## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
 
 
 ## Contact
