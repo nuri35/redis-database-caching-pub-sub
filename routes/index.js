@@ -1,7 +1,10 @@
 const TestRouterFn = require("./testRouter");
+const RedisRouterFn = require("./redisRouter");
 
 const RouterArrFns = [
-    TestRouterFn
+    TestRouterFn,
+    RedisRouterFn
+    
 ]
 
 module.exports = RouterArrFns
