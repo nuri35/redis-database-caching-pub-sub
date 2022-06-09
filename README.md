@@ -86,20 +86,35 @@ OK
 
 
 
-
 ## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
 
-`write-your-code-here`
+```sh
+ const { createClient } =  require('redis');
 
-
-## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
+const client = createClient();
 
 
+  router.get("/redis/list", async (req, res) => {
+        try {
+            await client.lPush("user112", ["arda", "sıla", "kerem"])
+            await client.lInsert("user112", "AFTER", "sıla", ["recep"])
+    
+            await client.rPush("user112", ["şemşi"])
+            await client.rPop("user112") //delete
+            const value = await client.lRange("user112", 0, -1) //list all
+            const droppedLeft = await client.lPopCount("user112", 2) 
 
+            if (droppedLeft) {
+                res.status(200).json({ message: `silinen değerler ${droppedLeft}` })
+            } else {
+                res.status(200).json({ message: `silinen değerler yok ` })
+            }
+        } catch (err) {
 
+            res.status(500).json({ message: err.message })
+        }
+    })
+```
 
 
 ## Contact
