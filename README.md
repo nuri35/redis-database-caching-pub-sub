@@ -38,9 +38,53 @@ List the ready features here:
 
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
 
-Proceed to describe how to install / setup one's local environment / get started with the project.
+```sh
+npm init -y
+npm install 
+```
+## Setup redis database module for redisJSON
+
+- redis is a structure that also works on linux. Open Ubuntu shell
+
+- The following packages are required to successfully build on Ubuntu 20.04:
+
+```sh
+  git clone https://github.com/RedisJSON/RedisJSON.git
+
+```
+```sh
+  cd RedisJSON 
+```
+```sh
+  sudo apt install build-essential llvm cmake libclang1 libclang-dev cargo
+  cargo build --release
+```
+- Requirements:
+
+    -  Redis v6.0 or above
+- you can have Redis load the module using the following command line argument syntax:
+
+```sh
+ redis-server --loadmodule ./target/release/librejson.so
+```
+
+- check that it is loaded
+
+```sh
+ 127.0.0.1:6379> JSON.SET num $ 0
+OK
+127.0.0.1:6379> JSON.NUMINCRBY num $ 1
+"[1]"
+127.0.0.1:6379> JSON.NUMINCRBY num $ 1.5
+"[2.5]"
+127.0.0.1:6379> JSON.NUMINCRBY num $ -0.75
+"[1.75]"
+127.0.0.1:6379> JSON.NUMMULTBY num $ 24
+"[42]"
+```
+
+
 
 
 ## Usage
