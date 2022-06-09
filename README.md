@@ -10,7 +10,8 @@
   - [Features](#features)
   - [Screenshots](#screenshots)
   - [Setup](#setup)
-  - [Usage](#usage)
+-   [SetupCaching](#SetupCaching)
+  - [UsageCaching](#UsageCaching)
   - [Project Status](#project-status)
   - [Contact](#contact)
 <!-- * [License](#license) -->
@@ -116,6 +117,11 @@ const client = createClient();
     })
 ```
 
+## SetupCaching
+
+
+
+## UsageCaching
 
 ## Contact
 Created by [@nurettinsen](https://www.linkedin.com/in/nurettin-sen/) - feel free to contact me!
