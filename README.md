@@ -3,7 +3,7 @@
 > Redis caching database and pub sub topics have been studied.
 
 ## Table of Contents
-- [redis-database-caching-pub-sub](#redis-database-caching-pub-sub)
+
   - [Table of Contents](#table-of-contents)
   - [General Information](#general-information)
   - [Technologies Used](#technologies-used)
@@ -23,7 +23,7 @@
 - What problem does it (intend to) solve?
 - What is the purpose of your project?
 - Why did you undertake it?
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+
 
 
 ## Technologies Used
@@ -40,8 +40,8 @@ List the ready features here:
 
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
+![Example screenshot](./images/Ekran Alıntısı)
+
 
 
 ## Setup
@@ -81,11 +81,5 @@ Give credit here.
 
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Created by [@nurettinsen](https://www.linkedin.com/in/nurettin-sen/) - feel free to contact me!
 
-
-<!-- Optional -->
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
-
-<!-- You don't have to include all sections - just the one's relevant to your project -->
