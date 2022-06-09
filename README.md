@@ -33,7 +33,7 @@ List the ready features here:
 
 
 ## Screenshots
-![Example screenshot](./images/Ekran Alıntısı.PNG)
+![Example screenshot](./images/img.png)
 
 
 
