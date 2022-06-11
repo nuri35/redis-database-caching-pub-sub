@@ -2,7 +2,7 @@ const client = require("./../redis/index")
 
 module.exports = (router) => {
     
-    router.get("/cached/user",async(req,res)=>{
+    router.get("/cached/users",async(req,res)=>{
    
       const obj =   await client.hGetAll("user943230509")
   
@@ -16,13 +16,12 @@ module.exports = (router) => {
             const cacheKey ="users/first50";
             let users = await client.get(cacheKey)
 
-            if(!users){ //eğer cache ' de yoksa gidicek redis veya baska databaseden 50 adet kullanıcı verısını alacak bunu cache kaydetcek yanı redise yazıcaz
-                console.log("databaseden aldı")
-                users =  await client.hGetAll("user943230509") //database sorgusu postregsql olur mongodb olur vs 
-                await client.set(cacheKey,JSON.stringify(users)) //redise yazıyoruz 
+            if(!users){ 
+               
+                users =  await client.hGetAll("user943230509") 
+                await client.set(cacheKey,JSON.stringify(users))
 
-            }else{//eğer cache yazdıgımız varsa redise yazdıgımız yanı direk redisden okuyoruz
-                console.log("redisden aldı")
+            }else{
                 users = JSON.parse(users)
             }
 
@@ -32,8 +31,10 @@ module.exports = (router) => {
             console.log(err)
         }
          
-        
+      })
 
-  
+/* Absolute timing  */
+      router.get("/cached/users",async(req,res)=>{
+   
       })
 }
