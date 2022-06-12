@@ -15,11 +15,11 @@ module.exports = (router) => {
 
     router.get("/redis/hash", async (req, res) => {
         try {
-            const data = {name:"Fred",age:25}
+            const data = {text:"ahahkldkkfdlkha",receiver:25121000,img:null,time:new Date()}
 
-            for (let index = 0; index < 50; index++) {
+            for (let index = 0; index < 80; index++) {
               
-                await client.hSet('user943230509', `${index}`, JSON.stringify(data));
+                await client.json.set('msguser111', `$`, data);
             }
            
 
