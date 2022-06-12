@@ -62,22 +62,22 @@ mongoConnected = true
     console.log(err)
 })
 
-cron.schedule('* * * * * ',()=>{
-    if(redisConnected && mongoConnected){
-        RedisMessagesCacheWorker().then((res)=>{
-            if(res){
-                console.log("users are synchorized with redis cache system")
-            }
-        }).catch(err=>{
-            console.log(err)
-        })
+// cron.schedule('* * * * * ',()=>{
+//     if(redisConnected && mongoConnected){
+//         RedisMessagesCacheWorker().then((res)=>{
+//             if(res){
+//                 console.log("users are synchorized with redis cache system")
+//             }
+//         }).catch(err=>{
+//             console.log(err)
+//         })
     
-    }else{
-        console.log("you can run the worker because of connectıon not established")
-    }
+//     }else{
+//         console.log("you can run the worker because of connectıon not established")
+//     }
    
 
-})
+// })
 
 
 

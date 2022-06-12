@@ -15,14 +15,15 @@ module.exports = (router) => {
 
     router.get("/redis/hash", async (req, res) => {
         try {
-            const data = {text:"ahahkldkkfdlkha",receiver:25121000,img:null,time:new Date()}
+            let cond = false
+            const data = {text:"kolay gelsın",receiver:25121000,img:null,time:new Date()}
 
-            for (let index = 0; index < 80; index++) {
-              
-                await client.json.set('msguser111', `$`, data);
+            if(cond){
+                await client.json.set('msguser111', `$`, []);
             }
+          
+                await client.json.arrAppend("msguser111",`$`,data)
            
-
             res.status(200).json({ message: "user hash typed saved" })
         } catch (err) {
 

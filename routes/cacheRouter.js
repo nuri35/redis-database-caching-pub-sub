@@ -1,4 +1,5 @@
 const client = require("./../redis/index")
+const Message = require("./../mongodb/messagesModel")
 
 module.exports = (router) => {
     
@@ -89,8 +90,8 @@ module.exports = (router) => {
 
            router.get("/cached/messages",async(req,res)=>{
    
-            const messages =  await client.hGetAll("user943230509") 
-            res.send({msg:"NON CACHED MESSAGE",msg:messages})
+            const messages =  await Message.find({}).limit(50).lean()
+            res.json({msg:"NON CACHED MESSAGE",messages})
           })
 
 
@@ -100,11 +101,11 @@ module.exports = (router) => {
               let messages = await client.json.get(cacheKey) 
 
               if(!messages){
-                messages =  await client.hGetAll("user943230509") 
+                messages =   await Message.find({}).limit(50).lean()
                 await client.json.set(cacheKey,'$',messages)
               }
              
-            res.send({msg:" CACHED MESSAGE",msg:messages})
+            res.json({msg:" CACHED MESSAGE",messages})
           })
 
 
