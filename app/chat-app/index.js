@@ -2,6 +2,7 @@ const term = require("terminal-kit").terminal;
 const mongoose = require("mongoose");
 const Users = require("./../../mongodb/user");
 const client1 = require("./../../redis/index");
+const client2 = client1.duplicate();
 
 const colors = ["magenta", "cyan", "yellow", "green", "red", "blue"];
 term.clear("");
@@ -22,6 +23,34 @@ const user = {
 };
 
 let client1Connected = false;
+let client2Connected = false;
+
+const readIncomingMessage = async () => {
+  const channel = `message/${user.chatRoom}`;
+
+  if (!client2Connected) {
+    await client2.connect();
+    client2Connected = true;
+  }
+
+  await client2.subscribe(channel, (messageStr) => {
+    const message = JSON.parse(messageStr);
+    if (message.from !== user.fullName) {
+      //eğer terminal uygulamaları yapılıcaksa  burdaki if koşulunu  uniq ıd uzerınden yapılır.
+      term.deleteLine(1);
+      term.previousLine(1);
+      term.nextLine(1);
+      term?.[message.color].bold(`${message.from}:`);
+      term?.[message.color].bold("\n");
+      term?.[message.color].bold(message.message);
+      term?.[message.color].bold("\n");
+      term?.[message.color].bold(new Date(message.sendAt).toLocaleString());
+      term?.[message.color].bold("---------------------------------------");
+      term?.[message.color].bold("\n");
+      term.white("Enter your message");
+    }
+  });
+};
 
 const sendMessage = async (messageStr) => {
   const channel = `message/${user.chatRoom}`;
@@ -79,7 +108,7 @@ const prompt = async (num = 0) => {
     term.white.bold("-----------------------------------------------\n");
     user.fullName = loggedUser.name + " " + loggedUser.surname;
   }
-  const input = await listenForMessageSend();
+  await listenForMessageSend();
   return await prompt(num + 1); //ılk calısınca num 0 oldugu ıcıın random kullanıcı olusturcak sonra artık senden mesaj bekleyecek o nasıl olcak recursive olarak  burası calıscak ve dolayısıyla num 0 olmadııg ıcın başka yer calısacak
 };
 
@@ -93,6 +122,12 @@ mongoose
     term.white("\n");
     prompt();
   })
+  .catch((err) => {
+    console.log(err);
+  });
+
+readIncomingMessage()
+  .then(() => {})
   .catch((err) => {
     console.log(err);
   });
