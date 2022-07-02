@@ -28,6 +28,7 @@
     "node-cron": "^3.0.1",
     "node-fetch": "^2.6.7",
     "redis": "^4.1.0",
+    "terminal-kit": "^2.4.0",
     "uuid": "^8.3.2"
   }
 }
