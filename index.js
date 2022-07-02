@@ -56,7 +56,7 @@ mongoose
   .then(async () => {
     console.log("mongodb connected");
     mongoConnected = true;
-    // await exampleDataInformation()
+    await exampleDataInformation();
   })
   .catch((err) => {
     console.log(err);
